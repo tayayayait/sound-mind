@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sound Mind Design System - Calm Nature Theme */
+/* Based on XML Spec: Light Only, Warm Neutral + Sage/Teal */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+@layer base {
+  :root {
+    /* Base Neutrals - Warm Beige/Nature */
+    --neutral-0: 0 0% 100%; /* #FFFFFF */
+    --neutral-5: 60 56% 91%; /* #F5F5DC - Soft Beige (Main BG) */
+    --neutral-10: 60 30% 88%; /* Slightly darker beige */
+    --neutral-20: 30 14% 37%; /* Earthy accent */
+    --neutral-60: 180 25% 25%; /* #305050 - Deep Teal Text */
+    --neutral-80: 180 25% 20%; /* Darker Teal */
+    --neutral-90: 180 25% 15%; /* Deepest Teal */
+
+    /* Brand - Forest Greens */
+    --brand-50: 100 35% 94%;
+    --brand-100: 91 43% 84%;
+    --brand-300: 170 30% 40%; /* Soft teal */
+    --brand-500: 180 25% 25%; /* #305050 - Deep Teal Primary */
+    --brand-600: 180 30% 20%;
+    --brand-700: 180 35% 15%;
+
+    /* Accent - Warm Sunlight & Wood */
+    --accent-50: 40 60% 95%;
+    --accent-300: 30 54% 64%;
+
+    /* Feedback Colors - Muted/Natural */
+    --success-50: 140 40% 95%; /* #F0F9F4 */
+    --success-600: 142 50% 30%; /* #267347 */
+    --warning-50: 45 100% 96%; /* #FFFCF0 */
+    --warning-600: 35 90% 40%; /* #C2760C */
+    --danger-50: 5 85% 95%; /* #FEF2F2 */
+    --danger-600: 5 65% 45%; /* #BE2828 */
+
+    /* Semantic Tokens */
+    --background: var(--neutral-5);
+    --foreground: var(--neutral-90);
+
+    --card: var(--neutral-0);
+    --card-foreground: var(--neutral-90);
+
+    --popover: var(--neutral-0);
+    --popover-foreground: var(--neutral-90);
+
+    --primary: var(--brand-500);
+    --primary-foreground: var(--neutral-0);
+
+    --secondary: var(--neutral-10);
+    --secondary-foreground: var(--neutral-90);
+
+    --muted: var(--neutral-10);
+    --muted-foreground: var(--neutral-60);
+
+    --accent: var(--brand-50);
+    --accent-foreground: var(--brand-700);
+
+    --destructive: var(--danger-600);
+    --destructive-foreground: var(--neutral-0);
+
+    --border: var(--neutral-20);
+    --input: var(--neutral-20);
+    --ring: var(--brand-300);
+
+    /* Radius Tokens - Softer, more organic */
+    --radius: 1rem;
+    --radius-sm: 0.75rem;
+    --radius-md: 1.5rem;
+    --radius-lg: 2rem;
+    --radius-pill: 9999px;
+
+    /* Elevation - Soft, diffused ambient light */
+    --shadow-1: 0 2px 8px -2px hsla(29, 16%, 25%, 0.08);
+    --shadow-2: 0 12px 24px -6px hsla(29, 16%, 25%, 0.12);
+
+    /* Sidebar - inherit main theme */
+    --sidebar-background: var(--neutral-0);
+    --sidebar-foreground: var(--neutral-80);
+    --sidebar-primary: var(--brand-600);
+    --sidebar-primary-foreground: var(--neutral-0);
+    --sidebar-accent: var(--brand-50);
+    --sidebar-accent-foreground: var(--brand-700);
+    --sidebar-border: var(--neutral-20);
+    --sidebar-ring: var(--brand-300);
+  }
+
+  /* No dark mode - Light Only per spec */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: "Pretendard", "Noto Sans KR", system-ui, sans-serif;
+  }
+
+  /* Typography Tokens */
+  .text-display {
+    @apply text-[32px] leading-[40px] font-bold;
+  }
+
+  .text-h1 {
+    @apply text-2xl leading-8 font-bold;
+  }
+
+  .text-h2 {
+    @apply text-xl leading-7 font-semibold;
+  }
+
+  .text-h3 {
+    @apply text-lg leading-[26px] font-semibold;
+  }
+
+  .text-body {
+    @apply text-base leading-6 font-normal;
+  }
+
+  .text-body-strong {
+    @apply text-base leading-6 font-semibold;
+  }
+
+  .text-caption {
+    @apply text-xs leading-4 font-normal;
+  }
+
+  /* Touch target minimum */
+  .touch-target {
+    @apply min-w-[44px] min-h-[44px];
+  }
+}
+
+@layer utilities {
+  /* Custom animations for Sound Mind */
+  .animate-breathe {
+    animation: breathe 4s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .animate-waveform {
+    animation: waveform 0.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes waveform {
+    from {
+      transform: scaleY(0.3);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+}
